@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of School Year Party - Bogor 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 60vh;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Hero Section -->
+    <section class="hero relative flex items-center justify-center text-center text-white">
+        <!-- Confetti Animation -->
+        <div id="confetti-container"></div>
+        
+        <div class="container mx-auto px-4 z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">End of School Year Party!</h1>
+            <p class="text-xl md:text-2xl mb-8">Let's celebrate our achievements before the long holiday!</p>
+            <div class="flex justify-center">
+                <div class="countdown-box rounded-lg p-4 md:p-6 shadow-lg">
+                    <h2 class="text-xl md:text-2xl font-semibold mb-4">June 28, 2025</h2>
+                    <div id="countdown" class="flex justify-center space-x-2 md:space-x-4">
+                        <div class="text-center">
+                            <div class="text-3xl md:text-5xl font-bold days">00</div>
+                            <div class="text-sm">Days</div>
+                        </div>
+                        <div class="text-3xl md:text-5xl font-bold">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-5xl font-bold hours">00</div>
+                            <div class="text-sm">Hours</div>
+                        </div>
+                        <div class="text-3xl md:text-5xl font-bold">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-5xl font-bold minutes">00</div>
+                            <div class="text-sm">Minutes</div>
+                        </div>
+                        <div class="text-3xl md:text-5xl font-bold">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-5xl font-bold seconds">00</div>
+                            <div class="text-sm">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Party Details</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- When -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">When</h3>
+                    <p class="text-gray-600">Saturday, June 28, 2025</p>
+                    <p class="text-gray-600">4:00 PM - 10:00 PM</p>
+                </div>
+                
+                <!-- Where -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Where</h3>
+                    <p class="text-gray-600">The Garden Cafe</p>
+                    <p class="text-gray-600">Bogor, Indonesia</p>
+                    <button onclick="openMap()" class="mt-3 px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">
+                        View on Map
+                    </button>
+                </div>
+                
+                <!-- Dress Code -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Dress Code</h3>
+                    <p class="text-gray-600">Casual & Comfortable</p>
+                    <p class="text-gray-600">Wear your favorite outfit!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Event Schedule</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <!-- Item 1 -->
+                    <div class="flex items-start">
+                        <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-door-open text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Arrival & Welcome</h3>
+                            <p class="text-gray-600">4:00 PM - 4:30 PM</p>
+                            <p class="mt-2">Get settled in and enjoy some welcome drinks and snacks.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="flex items-start">
+                        <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-utensils text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Dinner Time</h3>
+                            <p class="text-gray-600">5:00 PM - 6:30 PM</p>
+                            <p class="mt-2">Enjoy a delicious buffet with various food options.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="flex items-start">
+                        <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-gamepad text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Games & Activities</h3>
+                            <p class="text-gray-600">6:30 PM - 8:00 PM</p>
+                            <p class="mt-2">Fun games, karaoke, and other exciting activities.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="flex items-start">
+                        <div class="bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-music text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Dance Party</h3>
+                            <p class="text-gray-600">8:00 PM - 10:00 PM</p>
+                            <p class="mt-2">Let loose and dance the night away!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Will You Join Us?</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-md mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+                <form id="rsvpForm">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-600" required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 mb-2">Will you attend?</label>
+                        <div class="flex space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="attending" value="yes" class="text-purple-600" checked>
+                                <span class="ml-2">Yes, I'll be there!</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="attending" value="no" class="text-purple-600">
+                                <span class="ml-2">Sorry, can't make it</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="guests" class="block text-gray-700 mb-2">Number of Guests</label>
+                        <select id="guests" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            <option value="1">1 (Just me)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 mb-2">Message (Optional)</label>
+                        <textarea id="message" rows="3" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded hover:bg-purple-700 transition font-semibold">
+                        Submit RSVP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Memories from Last Year</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Party" class="w-full h-full object-cover hover:scale-105 transition-transform">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Party" class="w-full h-full object-cover hover:scale-105 transition-transform">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Party" class="w-full h-full object-cover hover:scale-105 transition-transform">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Party" class="w-full h-full object-cover hover:scale-105 transition-transform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">End of School Year Party</h3>
+                    <p class="text-gray-400">Celebrating before the long holiday!</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 End of School Year Party. All rights reserved.</p>
+                <p class="mt-2">The Garden Cafe, Bogor, Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="scrollToTop()" class="bg-purple-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center justify-center">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const partyDate = new Date('June 28, 2025 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = partyDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.querySelector('.days').textContent = days.toString().padStart(2, '0');
+            document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+            document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+            document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Confetti Animation
+        function createConfetti() {
+            const colors = ['#f0f', '#0ff', '#ff0', '#f00', '#0f0', '#00f'];
+            const container = document.getElementById('confetti-container');
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+        
+        createConfetti();
+        
+        // RSVP Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const attending = document.querySelector('input[name="attending"]:checked').value;
+            
+            if (attending === 'yes') {
+                alert(`Thank you, ${name}! We're excited to see you at the party!`);
+            } else {
+                alert(`We'll miss you, ${name}! Hope to see you next time.`);
+            }
+            
+            // In a real app, you would send this data to a server
+            this.reset();
+        });
+        
+        // Open Map
+        function openMap() {
+            // In a real app, this would open a map to the location
+            alert('Opening map to The Garden Cafe in Bogor, Indonesia');
+        }
+        
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
